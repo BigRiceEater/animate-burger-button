@@ -15,12 +15,13 @@
         justify-content: space-around;
         width: 2rem;
         height: 2rem;
-        background: #eeeeee;
-        border: 1px solid black;
-        border-radius: 5px;
+        background: white;
+        /* border: 2px solid black; */
+        border-radius: 10px;
         cursor: pointer;
         padding: 5px;
         z-index: 10;
+        transition: all 0.3s linear;
       }
 
       .burger-button > div {
@@ -53,25 +54,28 @@
       });
 
       var isOpen = false;
+      var $burgerButton = $('.burger-button');
       function handleBurgerMenuClick() {
         isOpen = !isOpen;
+
+        $burgerButton.css({
+          background: isOpen ? 'black' : 'white',
+        });
+
         var $burgerLines = $(this).find('div');
-        $burgerLines
-          .eq(0)
-          .css(
-            'transform',
-            isOpen ? 'translateX(5px) rotate(45deg)' : 'rotate(0deg)'
-          );
+        $burgerLines.eq(0).css({
+          background: isOpen ? 'white' : 'black',
+          transform: isOpen ? 'translateX(5px) rotate(45deg)' : 'rotate(0deg)',
+        });
         $burgerLines.eq(1).css({
+          background: isOpen ? 'white' : 'black',
           transform: isOpen ? 'translateX(20px)' : 'translateX(0)',
           opacity: isOpen ? '0' : '1',
         });
-        $burgerLines
-          .eq(2)
-          .css(
-            'transform',
-            isOpen ? 'translateX(5px) rotate(-45deg)' : 'rotate(0)'
-          );
+        $burgerLines.eq(2).css({
+          background: isOpen ? 'white' : 'black',
+          transform: isOpen ? 'translateX(5px) rotate(-45deg)' : 'rotate(0)',
+        });
       }
     </script>
   </body>
