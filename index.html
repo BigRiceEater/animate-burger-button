@@ -15,10 +15,11 @@
         justify-content: space-around;
         width: 2rem;
         height: 2rem;
-        background: transparent;
-        border: none;
+        background: #eeeeee;
+        border: 1px solid black;
+        border-radius: 5px;
         cursor: pointer;
-        padding: 0;
+        padding: 5px;
         z-index: 10;
       }
 
@@ -57,14 +58,20 @@
         var $burgerLines = $(this).find('div');
         $burgerLines
           .eq(0)
-          .css('transform', isOpen ? 'rotate(45deg)' : 'rotate(0deg)');
+          .css(
+            'transform',
+            isOpen ? 'translateX(5px) rotate(45deg)' : 'rotate(0deg)'
+          );
         $burgerLines.eq(1).css({
           transform: isOpen ? 'translateX(20px)' : 'translateX(0)',
           opacity: isOpen ? '0' : '1',
         });
         $burgerLines
           .eq(2)
-          .css('transform', isOpen ? 'rotate(-45deg)' : 'rotate(0)');
+          .css(
+            'transform',
+            isOpen ? 'translateX(5px) rotate(-45deg)' : 'rotate(0)'
+          );
       }
     </script>
   </body>
